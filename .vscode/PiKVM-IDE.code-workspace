@@ -1,0 +1,24 @@
+{
+	"folders": [
+		
+		{
+			"name": "Development Environment",
+			"path": ".."
+		},
+		{
+			"name": "Settings (/etc/kvmd)",
+			"path": "/etc/kvmd"
+		},		
+		{
+			"name": "KVMD Source Code",
+			"path": "../../kvmd"
+		}
+
+	],
+	"settings": {},
+	"extensions": {
+		"recommendations": [
+			"ms-python.python"
+		]
+	}
+}

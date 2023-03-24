@@ -1,0 +1,46 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Restart KVMD System Service",
+            "type": "shell",
+            "command": "sudo systemctl restart kvmd.service",
+            "problemMatcher": []
+        },
+        {
+            "label": "Stop KVMD System Service (for debugging)",
+            "type": "shell",
+            "command": "sudo systemctl stop kvmd.service",
+            "problemMatcher": []
+        },
+        {
+            "label": "Link KVMD source into system",
+            "type": "shell",
+            "command": "sudo /usr/bin/bash $PWD/.vscode/helpers/link-code-to-system.sh",
+            "problemMatcher": []
+        },
+        {
+            "label": "Unlink KVMD source from system",
+            "type": "shell",
+            "command": "sudo /usr/bin/bash $PWD/.vscode/helpers/unlink-code-to-system.sh",
+            "problemMatcher": []
+        },
+        {
+            "label": "Restart Nginix",
+            "type": "shell",
+            "command": "sudo systemctl restart kvmd-nginx"
+        },
+        {
+            "label": "Restart Janus",
+            "type": "shell",
+            "command": "sudo systemctl restart kvmd-janus"
+        },
+        {
+            "label": "Restart Webterm",
+            "type": "shell",
+            "command": "sudo systemctl restart kvmd-webterm.service"
+        }
+    ]
+}

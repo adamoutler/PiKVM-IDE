@@ -1,0 +1,8 @@
+{
+    "recommendations": [
+        "rogalmic.bash-debug",
+        "mcu-debug.memory-view",
+        "tock.vscode-css-custom-properties",
+        "ms-vscode.hexeditor"
+    ]
+}
