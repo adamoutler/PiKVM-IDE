@@ -27,26 +27,27 @@ Setup consists of 2-steps:
 The objective of the following is to get the system prepared for the `kvmd` user to log in and perform debugging operations on the system.  
 
 
+To start in the PiKVM Webterm, first execute `su` and enter your root password (default: `root`). 
 You can copy the entire block below and execute within the PiKVM WebTerminal as root.
 ``` bash
 rw
 
 #Grant kvmd user login, and sudo access without password
 sed -i /etc/passwd -e 's|main daemon:/:/usr/bin/nologin|main daemon:/home/pikvm:/bin/bash|g'
-usermod --password kvmd kvmd
+{ for i in 1 2; do sleep .2; echo kvmd ; done; }|passwd kvmd
 echo 'kvmd ALL=(ALL:ALL) NOPASSWD: ALL' > /etc/sudoers.d/99_kvmd-all
 
 #Configure ssh server
-echo "UsePAM yes">>/etc/ssh/sshd_config
-echo "PasswordAuthentication yes">>/etc/sshd/sshd_config
+echo "PasswordAuthentication yes">>/etc/ssh/sshd_config
 systemctl restart sshd.service
 
 # Set up kvmd development environment
-su - kvmd -c 'mkdir -p ~/PiKVM-IDE; git clone https://github.com/pikvm/kvmd.git'
+mkdir -m 00777 -p /home/pikvm
+su - kvmd -c 'mkdir -p ~/PiKVM-IDE; git clone https://github.com/pikvm/kvmd.git; git clone https://github.com/adamoutler/PiKVM-IDE.git'
 
 #Display IP addresses for user
-echo "Interfaces & IPs for PiKVM:"
-ip -o address|grep inet\ |sed 's|/.*||'
+echo "Interfaces & IPs for PiKVM:";ip -o address|grep inet\ |sed 's|/.*||'
+reboot
 ```
 > 💡 Make note of the IP address, it  be used in step 3 of the the following section.
 
@@ -58,6 +59,7 @@ ip -o address|grep inet\ |sed 's|/.*||'
 ![Alt text](.vscode/helpers/images/remote-ssh.png)
 
 3. Type kvmd@[PiKVM Ip Address] and press enter to select.
+> 💡 If you "Could not establish connection", try `ssh kvmd@[ip.add.re.ss]` from your command line to fix connection issues.
 
 ![Alt text](.vscode/helpers/images/connecttokvmd.png)
 
