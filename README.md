@@ -17,7 +17,7 @@ Making it easy to work on PiKVM by bringing heavy-weight tools into the lightwei
 
 ## Getting started
 
-Getting started is pretty simple.  Run a script, and then connect to the PiKVM. 
+Getting started is pretty simple.  Run a script, and then connect to the PiKVM. If you don't have it already, download and install [VSCode from the Download Page](https://code.visualstudio.com/download)
 
 Setup consists of 2-steps:
 1. Setup `kvmd` user
