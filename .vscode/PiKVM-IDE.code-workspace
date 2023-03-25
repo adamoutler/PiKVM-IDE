@@ -17,8 +17,6 @@
 	],
 	"settings": {},
 	"extensions": {
-		"recommendations": [
-			"ms-python.python"
-		]
+		"recommendations": []
 	}
 }

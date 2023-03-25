@@ -5,7 +5,7 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "Python: Current File",
+            "name": "KVMD Debug",
             "type": "python",
             "request": "launch",
             "program": "/usr/bin/kvmd",
@@ -13,6 +13,18 @@
             "console": "integratedTerminal",
             "justMyCode": false,
             "cwd": "/"
+        },
+        {
+            "name": "KVMD-VNC Debug",
+            "type": "python",
+            "request": "attach",
+            "preLaunchTask": "Start kvmd-vnc in Debug Mode",
+            "connect": {
+              "host": "localhost",
+              "port": 5678
+            },
+            "justMyCode": false,
         }
     ]
+
 }

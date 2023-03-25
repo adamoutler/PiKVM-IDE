@@ -41,6 +41,21 @@
             "label": "Restart Webterm",
             "type": "shell",
             "command": "sudo systemctl restart kvmd-webterm.service"
+        },
+        {
+            "label": "Start kvmd-vnc in Debug Mode",
+            "type": "shell",
+            "command": "sudo .vscode/helpers/debug-vnc.sh"
+        },
+        {
+            "label": "Stop kvmd-vnc Debugger",
+            "type": "shell",
+            "command": "sudo screen -S kvmd-vnc -X quit"
+        },
+        {
+            "label": "Prepare kvmd-vnc Debugger",
+            "type": "shell",
+            "command": "sudo .vscode/helpers/prepare-vnc-debug.sh"
         }
     ]
 }

@@ -101,11 +101,23 @@ After a reboot, VSCode will not login until you execute `rw` as root.  You can o
 
 
 ## Debugging
-To being debugging KVMD perform the following
+
+![kvmd-debugger](.vscode/helpers/images/pikvm-vscode-debugger.jpg)
+
+### KVMD
+To being debugging KVMD, perform the following:
 
 1. Press F1->Tasks->Link KVMD Source into System
 2. Press F1->Tasks->Stop KVMD System Service
-3. Press F5 to begin debugging
+3. Check the debug menu is set to KVMD Debug, and press F5 to begin debugging
+
+### KVMD-VNC
+To begin debuggin the KVMD-VNC, performthe following:
+
+1. perform Step 1 and 2 in KVMD Section
+2. Press F1->Tasks->Prepare kvmd-vnc Debugger
+3. Select KVMD-VNC Debug Press F5 to begin debugging
+
 
 > ❗ To reset your system, Just use F1->Tasks->Unlink Source from System, F1->Tasks->Restart KVMD!
 
