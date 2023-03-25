@@ -43,6 +43,7 @@ systemctl restart sshd.service
 
 # Set up kvmd development environment
 mkdir -m 00777 -p /home/pikvm
+install -C -m 775 -o kvmd -g kvmd /root/.bash_profile /home/pikvm/
 su - kvmd -c 'mkdir -p ~/PiKVM-IDE; git clone https://github.com/pikvm/kvmd.git; git clone https://github.com/adamoutler/PiKVM-IDE.git'
 
 #Display IP addresses for user
