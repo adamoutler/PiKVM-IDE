@@ -15,7 +15,11 @@
 		}
 
 	],
-	"settings": {},
+	"settings": {
+		"flake8.args": [
+			"--append-config=../kvmd/testenv/linters/flake8.ini"
+		]
+	},
 	"extensions": {
 		"recommendations": []
 	}
