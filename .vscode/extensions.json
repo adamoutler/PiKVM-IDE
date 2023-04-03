@@ -1,8 +1,9 @@
 {
     "recommendations": [
         "rogalmic.bash-debug",
-        "mcu-debug.memory-view",
         "tock.vscode-css-custom-properties",
-        "ms-vscode.hexeditor"
+        "ms-python.flake8",
+        "redhat.vscode-yaml",
+        "ms-python.pylint"
     ]
 }

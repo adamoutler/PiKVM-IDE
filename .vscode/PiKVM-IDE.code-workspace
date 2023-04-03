@@ -1,6 +1,5 @@
 {
 	"folders": [
-		
 		{
 			"name": "Development Environment",
 			"path": ".."
@@ -8,19 +7,35 @@
 		{
 			"name": "Settings (/etc/kvmd)",
 			"path": "/etc/kvmd"
-		},		
+		},
 		{
 			"name": "KVMD Source Code",
 			"path": "../../kvmd"
+		},
+		{
+			"name:": "Website",
+			"path": "/usr/share/kvmd"
 		}
-
 	],
 	"settings": {
 		"flake8.args": [
 			"--append-config=../kvmd/testenv/linters/flake8.ini"
+		],
+		"eslint.lintTask.options": "--config ../kvmd/testenv/linters/eslintrc.yaml .",
+		"eslint.lintTask.enable": true,
+		"eslint.format.enable": true,
+		"eslint.debug": true,
+		"pylint.args": [
+			"--rcfile=testenv/linters/pylint.ini"
 		]
 	},
 	"extensions": {
-		"recommendations": []
+		"recommendations": [
+			"htmlhint.vscode-htmlhint",
+			"dbaeumer.vscode-eslint",
+			"rogalmic.bash-debug",
+			"tock.vscode-css-custom-properties",
+			"ms-python.flake8"
+		]
 	}
 }
