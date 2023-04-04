@@ -24,6 +24,17 @@
               "port": 5678
             },
             "justMyCode": false,
+        },
+        {
+            "name": "KVMD-IMPI Debug",
+            "type": "python",
+            "request": "attach",
+            "preLaunchTask": "Start kvmd-impi in Debug Mode",
+            "connect": {
+              "host": "localhost",
+              "port": 6320
+            },
+            "justMyCode": false,
         }
     ]
 

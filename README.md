@@ -39,6 +39,7 @@ echo 'kvmd ALL=(ALL:ALL) NOPASSWD: ALL' > /etc/sudoers.d/99_kvmd-all
 
 #Configure ssh server
 echo "PasswordAuthentication yes">>/etc/ssh/sshd_config
+sed -i 's/^#*AllowTcpForwarding\s\+yes/AllowTcpForwarding yes/' /etc/ssh/sshd_config
 systemctl restart sshd.service
 
 # Set up kvmd development environment
@@ -46,7 +47,7 @@ mkdir -m 00777 -p /home/pikvm
 install -C -m 775 -o kvmd -g kvmd /root/.bash_profile /home/pikvm/
 su - kvmd -c 'mkdir -p ~/PiKVM-IDE; git clone https://github.com/pikvm/kvmd.git; git clone https://github.com/adamoutler/PiKVM-IDE.git'
 
-#Display IP addresses for user
+#Display IP addresses for remote SSH.
 echo "Interfaces & IPs for PiKVM:";ip -o address|grep inet\ |sed 's|/.*||'
 reboot
 ```
@@ -57,17 +58,17 @@ reboot
 1. Open VSCode.
 2. Press the `F1` key, then type "Remote-SSH: Connect to Host..." and press enter to select.
 
-![Alt text](.vscode/helpers/images/remote-ssh.png)
+![Alt text](.vscode/images/remote-ssh.png)
 
 3. Type kvmd@[PiKVM Ip Address] and press enter to select.
 > 💡 If you "Could not establish connection", try `ssh kvmd@[ip.add.re.ss]` from your command line to fix connection issues.
 
-![Alt text](.vscode/helpers/images/connecttokvmd.png)
+![Alt text](.vscode/images/connecttokvmd.png)
 
 4. Use the password `kvmd`. 
 > 💡 Change your password with the `usermod --password "my password" kvmd` command from PiKVM Webterm!
 
-![Alt text](.vscode/helpers/images/password.png)
+![Alt text](.vscode/images/password.png)
 
 VSCode will download required resources and prepare your environment.  
 > ❔ If VSCode fails to login, try running `rw` in webterm or check your internet connection.
@@ -76,22 +77,23 @@ VSCode will download required resources and prepare your environment.
 
 5. Press File>Open Workspace from File..
 
-![Alt text](.vscode/helpers/images/openworkspace.png)
+![Alt text](.vscode/images/openworkspace.png)
 
 6. Select `/home/pikvm/PiKVM-IDE/.vscode/PiKVM-IDE.code-workspace` and press enter
-![Alt text](.vscode/helpers/images/pikvmworkspace.png)
+![Alt text](.vscode/images/pikvmworkspace.png)
 
 
 7. Select "Yes, I trust the authors". 
-![Alt text](.vscode/helpers/images/trusttheauthors.png)
+![Alt text](.vscode/images/trusttheauthors.png)
 
-8. If presented the option in the lower right corner, install the recommended extensions.
+8. If presented the option in the lower right corner, install the recommended extensions.  otherwise go to Extensions and install the recommended extensions to improve experience and add tools which make it easier to work with.
 
-![Alt text](.vscode/helpers/images/install%20recommended.png)
+![Alt text](.vscode/images/install%20recommended.png)
 
 ### Reconnecting
-If you have rebooted the PiKVM, you will need to run `rw` as root. You can do this from WebTerm.
+If you have rebooted the PiKVM, you will need to run `rw` as root. You can do this from WebTerm by typing `su`, followed by your root password (default root), then type `rw`.
 
+![Alt text](.vscode/images/reopen.jpg)
 To open the Development Environment, click File>Open Recent>PiKVM-IDE.  Otherwise see the section: Open the environment with VSCode.
 
 
@@ -102,22 +104,36 @@ After a reboot, VSCode will not login until you execute `rw` as root.  You can o
 
 ## Debugging
 
-![kvmd-debugger](.vscode/helpers/images/pikvm-vscode-debugger.jpg)
+![kvmd-debugger](.vscode/images/debugger.jpg)
 
 ### KVMD
 To being debugging KVMD, perform the following:
 
-1. Press F1->Tasks->Link KVMD Source into System
-2. Press F1->Tasks->Stop KVMD System Service
-3. Check the debug menu is set to KVMD Debug, and press F5 to begin debugging
+1. Set the Debug menu to KVMD Debug
+2. Press F5 to begin debugging
+3. When complete, press Shift-F5
 
 ### KVMD-VNC
-To begin debuggin the KVMD-VNC, performthe following:
+To begin debugging the KVMD-VNC, performthe following:
 
-1. perform Step 1 and 2 in KVMD Section
-2. Press F1->Tasks->Prepare kvmd-vnc Debugger
-3. Select KVMD-VNC Debug Press F5 to begin debugging
+1. Set the Debug menu to KVMD-VNC Debug
+2. Press F5 to begin debugging
+3. When complete, press Shift-F5
 
+### KVMD-IPMI
+To begin debugging the KVMD-IPMI, performthe following:
 
-> ❗ To reset your system, Just use F1->Tasks->Unlink Source from System, F1->Tasks->Restart KVMD!
+1. Set the Debug menu to KVMD-IMPI Debug
+2. Press F5 to begin debugging
+3. When complete, press Shift-F5
 
+> ❗ To reset your system, Just use F1->Tasks->Unlink Source from System!  This will restart kvmd.  You may need to restart
+other services.
+
+## FAQ
+
+*Can I even run VSCode on Linux?*
+
+Yes. you can. [There are many options, deb, rpm, tar.gz, snap and raw binary](https://code.visualstudio.com/download)
+
+And if that doesn't work for you, [VSCode runs in docker](https://hub.docker.com/r/linuxserver/code-server) and you can get 100% functionality within a web browser.  Or you can run from [the VSCode Website](https://vscode.dev/), but you'll need to figure out your networking or code tunnels.

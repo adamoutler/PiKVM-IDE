@@ -7,55 +7,217 @@
             "label": "Restart KVMD System Service",
             "type": "shell",
             "command": "sudo systemctl restart kvmd.service",
-            "problemMatcher": []
+            "problemMatcher": [],
+            "icon": {
+                "id": "terminal-linux",
+                "color": "terminal.ansiGreen"
+            },
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "shared",
+                "showReuseMessage": false,
+                "clear": false
+            }
         },
         {
             "label": "Stop KVMD System Service (for debugging)",
             "type": "shell",
             "command": "sudo systemctl stop kvmd.service",
-            "problemMatcher": []
+            "problemMatcher": [],
+            "icon": {
+                "id": "debug-stop",
+                "color": "terminal.ansiRed"
+            },
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "shared",
+                "showReuseMessage": false,
+                "clear": false
+            }
         },
         {
             "label": "Link KVMD source into system",
             "type": "shell",
             "command": "sudo /usr/bin/bash $PWD/.vscode/helpers/link-code-to-system.sh",
-            "problemMatcher": []
+            "problemMatcher": [],
+            "icon": {
+                "id": "unlock",
+                "color": "terminal.ansiYellow"
+            },
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "shared",
+                "showReuseMessage": false,
+                "clear": true
+            }
         },
         {
             "label": "Unlink KVMD source from system",
             "type": "shell",
             "command": "sudo /usr/bin/bash $PWD/.vscode/helpers/unlink-code-to-system.sh",
-            "problemMatcher": []
+            "problemMatcher": [],
+            "icon": {
+                "id": "lock",
+                "color": "terminal.ansiGreen"
+            },
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "shared",
+                "showReuseMessage": false,
+                "clear": true
+            }
         },
         {
             "label": "Restart Nginix",
             "type": "shell",
-            "command": "sudo systemctl restart kvmd-nginx"
+            "command": "sudo systemctl restart kvmd-nginx",
+            "problemMatcher": [],
+            "icon": {
+                "id": "terminal-linux",
+                "color": "terminal.ansiGreen"
+            },
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "shared",
+                "showReuseMessage": false,
+                "clear": true
+            }
         },
         {
             "label": "Restart Janus",
             "type": "shell",
-            "command": "sudo systemctl restart kvmd-janus"
+            "command": "sudo systemctl restart kvmd-janus",
+            "problemMatcher": [],
+            "icon": {
+                "id": "terminal-linux",
+                "color": "terminal.ansiGreen"
+            },
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "shared",
+                "showReuseMessage": false,
+                "clear": true
+            }
         },
         {
             "label": "Restart Webterm",
             "type": "shell",
-            "command": "sudo systemctl restart kvmd-webterm.service"
+            "command": "sudo systemctl restart kvmd-webterm.service",
+            "problemMatcher": [],
+            "icon": {
+                "id": "terminal-linux",
+                "color": "terminal.ansiGreen"
+            },
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "shared",
+                "showReuseMessage": false,
+                "clear": true
+            }
+        },
+        {
+            "label": "Restart IPMI",
+            "type": "shell",
+            "command": "rm /etc/kvmd/override.d/999-debug-ipmi 2>/dev/null;sudo systemctl restart kvmd-ipmi.service",
+            "problemMatcher": [],
+            "icon": {
+                "id": "terminal-linux",
+                "color": "terminal.ansiGreen"
+            },
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "shared",
+                "showReuseMessage": false,
+                "clear": true
+            }
         },
         {
             "label": "Start kvmd-vnc in Debug Mode",
             "type": "shell",
-            "command": "sudo .vscode/helpers/debug-vnc.sh"
+            "command": "sudo .vscode/helpers/vnc/debug.sh",
+            "problemMatcher": [],
+            "icon": {
+                "id": "debug-alt",
+                "color": "terminal.ansiGreen"
+            },
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "shared",
+                "showReuseMessage": false,
+                "clear": true
+            }
         },
         {
             "label": "Stop kvmd-vnc Debugger",
             "type": "shell",
-            "command": "sudo screen -S kvmd-vnc -X quit"
+            "command": "sudo screen -S kvmd-vnc -X quit",
+            "problemMatcher": [],
+            "icon": {
+                "id": "debug-stop",
+                "color": "terminal.ansiRed"
+            },
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "shared",
+                "showReuseMessage": false,
+                "clear": false
+            }
         },
         {
-            "label": "Prepare kvmd-vnc Debugger",
+            "label": "Start kvmd-impi in Debug Mode",
             "type": "shell",
-            "command": "sudo .vscode/helpers/prepare-vnc-debug.sh"
+            "command": "sudo .vscode/helpers/ipmi/debug.sh",
+            "problemMatcher": [],
+            "icon": {
+                "id": "debug-alt",
+                "color": "terminal.ansiGreen"
+            },
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "shared",
+                "showReuseMessage": false,
+                "clear": true
+            }
+        },
+        {
+            "label": "Stop kvmd-impi Debugger",
+            "type": "shell",
+            "command": "sudo screen -S kvmd-ipmi -X quit",
+            "problemMatcher": [],
+            "icon": {
+                "id": "debug-stop",
+                "color": "terminal.ansiRed"
+            },
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "shared",
+                "showReuseMessage": false,
+                "clear": false
+            }
         }
     ]
 }
