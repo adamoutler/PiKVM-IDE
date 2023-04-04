@@ -9,6 +9,7 @@
             "type": "python",
             "request": "launch",
             "program": "/usr/bin/kvmd",
+            "preLaunchTask": "Link KVMD source into system",
             "args": ["/usr/bin/kvmd", "--run"],
             "console": "integratedTerminal",
             "justMyCode": false,

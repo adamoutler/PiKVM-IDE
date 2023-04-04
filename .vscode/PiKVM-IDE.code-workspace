@@ -13,8 +13,8 @@
 			"path": "../../kvmd"
 		},
 		{
-			"name:": "Website",
-			"path": "/usr/share/kvmd"
+			"name": "KVMD Website (/usr/share/kvmd)",
+			"path": "../../../../usr/share/kvmd"
 		}
 	],
 	"settings": {

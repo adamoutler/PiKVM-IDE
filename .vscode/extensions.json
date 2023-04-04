@@ -4,6 +4,7 @@
         "tock.vscode-css-custom-properties",
         "ms-python.flake8",
         "redhat.vscode-yaml",
-        "ms-python.pylint"
+        "ms-python.pylint",
+        "ms-vscode.makefile-tools"
     ]
 }
