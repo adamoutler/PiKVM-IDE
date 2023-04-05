@@ -33,7 +33,7 @@
             "preLaunchTask": "Start kvmd-impi in Debug Mode",
             "connect": {
               "host": "localhost",
-              "port": 6320
+              "port": 5676
             },
             "justMyCode": false,
         }

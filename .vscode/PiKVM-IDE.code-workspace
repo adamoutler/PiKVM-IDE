@@ -27,7 +27,8 @@
 		"eslint.debug": true,
 		"pylint.args": [
 			"--rcfile=testenv/linters/pylint.ini"
-		]
+		],
+		"editor.fontFamily": "Consolas, 'Courier New', monospace"
 	},
 	"extensions": {
 		"recommendations": [
