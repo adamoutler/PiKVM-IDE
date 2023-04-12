@@ -26,9 +26,17 @@
 		"eslint.format.enable": true,
 		"eslint.debug": true,
 		"pylint.args": [
-			"--rcfile=testenv/linters/pylint.ini"
+			"--rcfile=../kvmd/testenv/linters/pylint.ini"
 		],
-		"editor.fontFamily": "Consolas, 'Courier New', monospace"
+		"editor.fontFamily": "Consolas, 'Courier New', monospace",
+		"black-formatter.importStrategy": "fromEnvironment",
+		"python.formatting.autopep8Args": [
+			"--verbose"
+		],
+		"autopep8.args": [
+			"--global-config",
+			"../PiKVM-IDE/.vscode/config/autopep8.ini"
+		]
 	},
 	"extensions": {
 		"recommendations": [
@@ -36,7 +44,8 @@
 			"dbaeumer.vscode-eslint",
 			"rogalmic.bash-debug",
 			"tock.vscode-css-custom-properties",
-			"ms-python.flake8"
+			"ms-python.flake8",
+			"ms-python.autopep8"
 		]
 	}
 }
