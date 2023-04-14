@@ -33,7 +33,7 @@ You can copy the entire block below and execute within the PiKVM WebTerminal as 
 rw
 
 #Grant kvmd user login, and sudo access without password
-sed -i /etc/passwd -e 's|main daemon:/:/usr/bin/nologin|main daemon:/home/pikvm:/bin/bash|g'
+sed -i /etc/passwd -e 's|main daemon:/:/usr/bin/nologin|main daemon:/home/kvmd:/bin/bash|g'
 { for i in 1 2; do sleep .2; echo kvmd ; done; }|passwd kvmd
 echo 'kvmd ALL=(ALL:ALL) NOPASSWD: ALL' > /etc/sudoers.d/99_kvmd-all
 
@@ -43,9 +43,10 @@ sed -i 's/^#*AllowTcpForwarding\s\+yes/AllowTcpForwarding yes/' /etc/ssh/sshd_co
 systemctl restart sshd.service
 
 # Set up kvmd development environment
-mkdir -m 00777 -p /home/pikvm
-install -C -m 775 -o kvmd -g kvmd /root/.bash_profile /home/pikvm/
-su - kvmd -c 'mkdir -p ~/PiKVM-IDE; git clone https://github.com/pikvm/kvmd.git; git clone https://github.com/adamoutler/PiKVM-IDE.git'
+install -d -m 0700 -o kvmd -g kvmd /home/kvmd
+mkdir -m 00777 -p code
+install -C -m 775 -o kvmd -g kvmd /root/.bash_profile /home/kvmd
+su - kvmd -c 'cd /home/code; git clone https://github.com/pikvm/kvmd.git; git clone https://github.com/adamoutler/PiKVM-IDE.git'
 
 # Enable downloading pacakges for the IDE
 pacman -Syu python-pip
@@ -82,7 +83,7 @@ VSCode will download required resources and prepare your environment.
 
 ![Alt text](.vscode/images/openworkspace.png)
 
-6. Select `/home/pikvm/PiKVM-IDE/.vscode/PiKVM-IDE.code-workspace` and press enter
+6. Select `/home/code/PiKVM-IDE/.vscode/PiKVM-IDE.code-workspace` and press enter
 ![Alt text](.vscode/images/pikvmworkspace.png)
 
 
