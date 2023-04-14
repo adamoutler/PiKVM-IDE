@@ -13,7 +13,7 @@
 			"path": "../../kvmd"
 		},
 		{
-			"name": "KVMD Website (/usr/share/kvmd)",
+			"name": "KVMD Shared (/usr/share/kvmd)",
 			"path": "../../../../usr/share/kvmd"
 		}
 	],
@@ -36,7 +36,14 @@
 		"autopep8.args": [
 			"--global-config",
 			"../PiKVM-IDE/.vscode/config/autopep8.ini"
-		]
+		],
+		"python.autoComplete.extraPaths": [
+			"/usr/lib/python3.10/site-packages/"
+		],
+		"python.linting.lintOnSave": false,
+		"python.linting.enabled": true,
+		"python.linting.flake8Enabled": true,
+		"workbench.startupEditor": "readme"
 	},
 	"extensions": {
 		"recommendations": [

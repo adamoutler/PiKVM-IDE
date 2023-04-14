@@ -1,6 +1,3 @@
 {
-    "python.autoComplete.extraPaths": [
-        "/usr/lib/python3.10/site-packages/"
-    ],
-    "python.linting.lintOnSave": false
+    "workbench.startupEditor": "readme"
 }
