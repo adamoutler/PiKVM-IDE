@@ -44,7 +44,7 @@ systemctl restart sshd.service
 
 # Set up kvmd development environment
 install -d -m 0700 -o kvmd -g kvmd /home/kvmd
-mkdir -m 00777 -p code
+mkdir -m 00777 -p /home/code
 install -C -m 775 -o kvmd -g kvmd /root/.bash_profile /home/kvmd
 su - kvmd -c 'cd /home/code; git clone https://github.com/pikvm/kvmd.git; git clone https://github.com/adamoutler/PiKVM-IDE.git'
 
