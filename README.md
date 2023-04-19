@@ -48,8 +48,9 @@ mkdir -m 00777 -p /home/code
 install -C -m 775 -o kvmd -g kvmd /root/.bash_profile /home/kvmd
 su - kvmd -c 'cd /home/code; git clone https://github.com/pikvm/kvmd.git; git clone https://github.com/adamoutler/PiKVM-IDE.git'
 
-# Enable downloading pacakges for the IDE
-pacman -Syu python-pip
+# Enable downloading pacakges for the IDE and docker use for Makefile
+pacman -Syu python-pip docker
+usermod -G docker kvmd
 
 #Display IP addresses for remote SSH.
 echo "Interfaces & IPs for PiKVM:";ip -o address|grep inet\ |sed 's|/.*||'
