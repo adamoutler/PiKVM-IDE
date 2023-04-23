@@ -21,10 +21,10 @@
 		"flake8.args": [
 			"--append-config=../kvmd/testenv/linters/flake8.ini"
 		],
-		"eslint.lintTask.options": "--config ../kvmd/testenv/linters/eslintrc.yaml .",
+		"eslint.lintTask.options": "-c ../kvmd/testenv/linters/eslintrc.yaml",
 		"eslint.lintTask.enable": true,
 		"eslint.format.enable": true,
-		"eslint.debug": true,
+		"eslint.debug": false,
 		"pylint.args": [
 			"--rcfile=../kvmd/testenv/linters/pylint.ini"
 		],
@@ -43,7 +43,12 @@
 		"python.linting.lintOnSave": false,
 		"python.linting.enabled": true,
 		"python.linting.flake8Enabled": true,
-		"workbench.startupEditor": "readme"
+		"workbench.startupEditor": "readme",
+		"typescript.format.insertSpaceAfterFunctionKeywordForAnonymousFunctions": false,
+		"typescript.format.insertSpaceAfterKeywordsInControlFlowStatements": false,
+		"typescript.format.insertSpaceAfterOpeningAndBeforeClosingEmptyBraces": false,
+		"typescript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBraces": false,
+		"typescript.format.insertSpaceBeforeAndAfterBinaryOperators": false,
 	},
 	"extensions": {
 		"recommendations": [
