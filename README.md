@@ -38,7 +38,7 @@ sed -i /etc/passwd -e 's|main daemon:/:/usr/bin/nologin|main daemon:/home/kvmd:/
 echo 'kvmd ALL=(ALL:ALL) NOPASSWD: ALL' > /etc/sudoers.d/99_kvmd-all
 
 #Configure ssh server
-echo "PasswordAuthentication yes">>/etc/ssh/sshd_config
+echo -e "PasswordAuthentication yes\nForceCommand /usr/bin/test "$USER" == "kvmd"  && /usr/bin/sudo /usr/local/bin/rw; /usr/bin/bash">>/etc/ssh/sshd_config
 sed -i 's/^#*AllowTcpForwarding\s\+yes/AllowTcpForwarding yes/' /etc/ssh/sshd_config
 systemctl restart sshd.service
 
@@ -76,9 +76,8 @@ reboot
 ![Alt text](.vscode/images/password.png)
 
 VSCode will download required resources and prepare your environment.  
-> ❔ If VSCode fails to login, try running `rw` in webterm or check your internet connection.
 
-> ❓ Still doesn't work? try running `rm -rf /home/pikvm/.vscode-server`
+> ❔ If VSCode fails to login, try running `rm -rf /home/pikvm/.vscode-server`, or `rw` as root
 
 5. Press File>Open Workspace from File..
 
@@ -95,15 +94,12 @@ VSCode will download required resources and prepare your environment.
 
 ![Alt text](.vscode/images/install%20recommended.png)
 
-### Reconnecting
-If you have rebooted the PiKVM, you will need to run `rw` as root. You can do this from WebTerm by typing `su`, followed by your root password (default root), then type `rw`.
-
 ![Alt text](.vscode/images/reopen.jpg)
 To open the Development Environment, click File>Open Recent>PiKVM-IDE.  Otherwise see the section: Open the environment with VSCode.
 
 
 ### After Reboot
-After a reboot, VSCode will not login until you execute `rw` as root.  You can open the WebTerm and type `rw`, then simply open VSCode and it will reconnect.
+Reconnection should just work.  However, if some changes occurred to your sshd config, then you may need to manually run `rw` as root.  You can open the WebTerm and type `rw`, then simply open VSCode and it will reconnect.
 
 
 

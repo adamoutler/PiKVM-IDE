@@ -4,6 +4,14 @@
     "version": "2.0.0",
     "tasks": [
         {
+            "label": "remount kvmd msd partition",
+            "type": "shell",
+            "command": "sudo rw; sudo mount -o remount,rw /var/lib/kvmd/msd",
+            "runOptions": {
+                "runOn": "folderOpen",
+            }
+        },
+        {
             "label": "Restart KVMD System Service",
             "type": "shell",
             "command": "sudo systemctl restart kvmd.service",
