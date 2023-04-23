@@ -226,6 +226,24 @@
                 "showReuseMessage": false,
                 "clear": false
             }
+        },
+        {
+            "label": "Build KVMD Website from Pug",
+            "type": "shell",
+            "command": ".vscode/helpers/pug/build-pug.sh",
+            "problemMatcher": [],
+            "icon": {
+                "id": "server-environment",
+                "color": "terminal.ansiBlack"
+            },
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "shared",
+                "showReuseMessage": false,
+                "clear": false
+            }
         }
     ]
 }
