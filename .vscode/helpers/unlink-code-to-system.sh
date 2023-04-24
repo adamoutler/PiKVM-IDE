@@ -9,10 +9,10 @@ test ! -L "${kvmd_location}" && echo already unlinked && exit 0
 unlink ${kvmd_location}
 for file in `ls -1 /usr/share/kvmd`; do 
     sudo unlink /usr/share/kvmd/$file 
+for file in `ls -1 /usr/share/kvmd/extras`; do 
+    sudo unlink /usr/share/kvmd/extras/$file 
 2>/dev/null; done
 sudo unlink /etc/kvmd/override.d/999-debug-ipmi
 pacman -Syu --noconfirm kvmd
-sudo chmod -R a-w /usr/share/kvmd
-sudo chmod -R a-w /etc/kvmd
 sudo systemctl restart kvmd.service
 echo "source unlinked, replaced by official kvmd"

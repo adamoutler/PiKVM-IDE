@@ -43,9 +43,11 @@ sed -i 's/^#*AllowTcpForwarding\s\+yes/AllowTcpForwarding yes/' /etc/ssh/sshd_co
 systemctl restart sshd.service
 
 # Set up kvmd development environment
-install -d -m 0700 -o kvmd -g kvmd /home/kvmd
-mkdir -m 00777 -p /home/code
-install -C -m 775 -o kvmd -g kvmd /root/.bash_profile /home/kvmd
+install -d -m 0700 -o kvmd -g kvmd /home/kvmd;
+mkdir -m 00777 -p /home/code;
+install -C -m 775 -o kvmd -g kvmd /root/.bash_profile /home/kvmd;
+install -C -m 775 -o kvmd -g kvmd /root/.bashrc/home/kvmd;
+
 su - kvmd -c 'cd /home/code; git clone https://github.com/pikvm/kvmd.git; git clone https://github.com/adamoutler/PiKVM-IDE.git'
 echo 'ForceCommand test [ "$USER" == "kvmd" ] && /usr/bin/sudo /usr/local/bin/rw; /usr/bin/bash'>>/etc/ssh/sshd_config;
 
