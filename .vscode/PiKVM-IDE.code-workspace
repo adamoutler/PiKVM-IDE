@@ -21,10 +21,10 @@
 		"flake8.args": [
 			"--append-config=../kvmd/testenv/linters/flake8.ini"
 		],
-		"eslint.lintTask.options": "-c ../kvmd/testenv/linters/eslintrc.yaml",
+		"eslint.options": {"overrideConfigFile":"/home/code/kvmd/testenv/linters/eslintrc.yaml"},
 		"eslint.lintTask.enable": true,
 		"eslint.format.enable": true,
-		"eslint.debug": false,
+		"eslint.debug": true,
 		"pylint.args": [
 			"--rcfile=../kvmd/testenv/linters/pylint.ini"
 		],
@@ -49,6 +49,8 @@
 		"typescript.format.insertSpaceAfterOpeningAndBeforeClosingEmptyBraces": false,
 		"typescript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBraces": false,
 		"typescript.format.insertSpaceBeforeAndAfterBinaryOperators": false,
+		"eslint.nodeEnv": "/usr/lib/",
+		"eslint.experimental.useFlatConfig": false,
 	},
 	"extensions": {
 		"recommendations": [
