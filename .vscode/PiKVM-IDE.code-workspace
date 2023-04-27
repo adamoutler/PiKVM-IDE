@@ -51,6 +51,9 @@
 		"typescript.format.insertSpaceBeforeAndAfterBinaryOperators": false,
 		"eslint.nodeEnv": "/usr/lib/",
 		"eslint.experimental.useFlatConfig": false,
+		"python.linting.flake8Args": [
+			"--config=../kvmd/testenv/linters/flake8.ini"
+		],
 	},
 	"extensions": {
 		"recommendations": [
