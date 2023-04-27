@@ -1,3 +1,6 @@
 ipmi: 
     server:
         port: 6320
+    sol:
+        device: /dev/mypipe  # Path of your USB-COM adapter
+        speed: 115200
