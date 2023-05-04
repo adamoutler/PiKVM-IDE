@@ -93,11 +93,14 @@ VSCode will download required resources and prepare your environment.
 ![Alt text](.vscode/images/trusttheauthors.png)
 
 8. If presented the option in the lower right corner, install the recommended extensions.  otherwise go to Extensions and install the recommended extensions to improve experience and add tools which make it easier to work with.
+> 💡 At any time you can press F1->Show Recommended Extensions to manually install the extensions you desire.
+
 
 ![Alt text](.vscode/images/install%20recommended.png)
 
 ![Alt text](.vscode/images/reopen.jpg)
 To open the Development Environment, click File>Open Recent>PiKVM-IDE.  Otherwise see the section: Open the environment with VSCode.
+
 
 
 ### After Reboot

@@ -5,6 +5,7 @@
         "ms-python.flake8",
         "redhat.vscode-yaml",
         "ms-python.pylint",
-        "ms-vscode.makefile-tools"
+        "ms-vscode.makefile-tools",
+        "hbenl.vscode-test-explorer"
     ]
 }
