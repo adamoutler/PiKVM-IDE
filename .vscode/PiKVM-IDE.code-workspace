@@ -60,12 +60,20 @@
 			"efmt",
 			"KVMD"
 		],
-		"python.testing.pytestArgs": [
-			"testenv/tests"
-		],
+		
 		"python.testing.unittestEnabled": false,
 		"python.testing.pytestEnabled": true,
 		"python.testing.cwd": "../kvmd",
+		"python.testing.unittestArgs": [
+			"../kvmd/testenv/tests",
+
+			"-v",
+			"--ignore=/usr/share/kvmd",
+			"-s",
+			".",
+			"-p",
+			"*test*.py"
+		],
 		"python.testing.autoTestDiscoverOnSaveEnabled": true,
 		"files.exclude": {
 			"../PiKVM/**": true,
