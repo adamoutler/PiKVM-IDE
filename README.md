@@ -40,19 +40,18 @@ echo 'kvmd ALL=(ALL:ALL) NOPASSWD: ALL' > /etc/sudoers.d/99_kvmd-all
 #Configure ssh server
 echo -e "PasswordAuthentication yes\nForceCommand /usr/bin/test "$USER" == "kvmd"  && /usr/bin/sudo /usr/local/bin/rw; /usr/bin/bash">>/etc/ssh/sshd_config
 sed -i 's/^#*AllowTcpForwarding\s\+yes/AllowTcpForwarding yes/' /etc/ssh/sshd_config
-systemctl restart sshd.service
 
 # Set up kvmd development environment
 install -d -m 0700 -o kvmd -g kvmd /home/kvmd;
 mkdir -m 00777 -p /home/code;
 install -C -m 775 -o kvmd -g kvmd /root/.bash_profile /home/kvmd;
-install -C -m 775 -o kvmd -g kvmd /root/.bashrc/home/kvmd;
+install -C -m 775 -o kvmd -g kvmd /root/.bashrc /home/kvmd;
 
 su - kvmd -c 'cd /home/code; git clone https://github.com/pikvm/kvmd.git; git clone https://github.com/adamoutler/PiKVM-IDE.git'
 echo 'ForceCommand [ "$USER" == "kvmd" ] && /usr/bin/sudo /usr/local/bin/rw; /usr/bin/bash'>>/etc/ssh/sshd_config;
 
 # Enable downloading pacakges for the IDE and docker use for Makefile
-pacman -Syu python-pip mypy flake8
+pacman -Syu python-pip --noconfirm mypy flake8
 
 #Display IP addresses for remote SSH.
 echo "Interfaces & IPs for PiKVM:";ip -o address|grep inet\ |sed 's|/.*||'
