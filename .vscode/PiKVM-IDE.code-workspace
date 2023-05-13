@@ -60,19 +60,14 @@
 			"efmt",
 			"KVMD"
 		],
-		
 		"python.testing.unittestEnabled": false,
 		"python.testing.pytestEnabled": true,
 		"python.testing.cwd": "../kvmd",
-		"python.testing.unittestArgs": [
-			"../kvmd/testenv/tests",
-
-			"-v",
+		"python.testing.pytestArgs": [
+			"/home/code/kvmd/testenv",
 			"--ignore=/usr/share/kvmd",
-			"-s",
-			".",
-			"-p",
-			"*test*.py"
+			"--ignore=/home/code/PiKVM-IDE"
+
 		],
 		"python.testing.autoTestDiscoverOnSaveEnabled": true,
 		"files.exclude": {
@@ -83,7 +78,15 @@
 			"**/.settings": true
 		},
 		"testing.alwaysRevealTestOnStateChange": false,
-		"testing.automaticallyOpenPeekViewDuringAutoRun": true
+		"testing.automaticallyOpenPeekViewDuringAutoRun": true,
+		"mypy.configFile": "/home/code/kvmd/testenv/linters/mypy.ini",
+		"cSpell.enabled": false,
+		"mypy.debugLogging": false,
+		"mypy.runUsingActiveInterpreter": true,
+		"mypy.enabled": true,
+		"mypy.targets": [
+			"/home/code/kvmd/kvmd/"
+		]
 
 	},
 	"extensions": {
@@ -96,7 +99,8 @@
 			"ms-python.autopep8",
 			"waderyan.gitblame",
 			"github.copilot",
-			"kevinrose.vsc-python-indent"
+			"kevinrose.vsc-python-indent",
+			"ms-python.mypy-type-checker"
 		]
 	}
 }

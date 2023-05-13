@@ -52,7 +52,7 @@ su - kvmd -c 'cd /home/code; git clone https://github.com/pikvm/kvmd.git; git cl
 echo 'ForceCommand test [ "$USER" == "kvmd" ] && /usr/bin/sudo /usr/local/bin/rw; /usr/bin/bash'>>/etc/ssh/sshd_config;
 
 # Enable downloading pacakges for the IDE and docker use for Makefile
-pacman -Syu python-pip 
+pacman -Syu python-pip mypy flake8
 
 #Display IP addresses for remote SSH.
 echo "Interfaces & IPs for PiKVM:";ip -o address|grep inet\ |sed 's|/.*||'
