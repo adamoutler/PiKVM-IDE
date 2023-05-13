@@ -9,7 +9,7 @@ kvmd_location=/usr/lib/python3.10/site-packages/kvmd
 usrsharekvmd_location=/usr/share/kvmd/
 test -L "${kvmd_location}" && loaded=true
 if ! ${loaded}; then
-    pip install debugpy aiohttp_basicauth asyncio pytest_asyncio pytest-mock
+    pip install debugpy aiohttp_basicauth asyncio pytest_asyncio pytest-mock types-PyYAML
     source_location="$PWD"/../kvmd
     rm -Rf ${usrsharekvmd_location}/web
     ln -s ${source_location}/web "${usrsharekvmd_location}/web"
