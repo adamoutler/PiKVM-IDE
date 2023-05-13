@@ -49,7 +49,7 @@ install -C -m 775 -o kvmd -g kvmd /root/.bash_profile /home/kvmd;
 install -C -m 775 -o kvmd -g kvmd /root/.bashrc/home/kvmd;
 
 su - kvmd -c 'cd /home/code; git clone https://github.com/pikvm/kvmd.git; git clone https://github.com/adamoutler/PiKVM-IDE.git'
-echo 'ForceCommand test [ "$USER" == "kvmd" ] && /usr/bin/sudo /usr/local/bin/rw; /usr/bin/bash'>>/etc/ssh/sshd_config;
+echo 'ForceCommand [ "$USER" == "kvmd" ] && /usr/bin/sudo /usr/local/bin/rw; /usr/bin/bash'>>/etc/ssh/sshd_config;
 
 # Enable downloading pacakges for the IDE and docker use for Makefile
 pacman -Syu python-pip mypy flake8
