@@ -81,11 +81,12 @@
 		"testing.automaticallyOpenPeekViewDuringAutoRun": true,
 		"mypy.configFile": "/home/code/kvmd/testenv/linters/mypy.ini",
 		"cSpell.enabled": false,
-		"mypy.debugLogging": false,
+		"mypy.debugLogging": true,
 		"mypy.runUsingActiveInterpreter": true,
 		"mypy.enabled": true,
 		"mypy.targets": [
-			"/home/code/kvmd/kvmd/"
+			"/home/code/kvmd/kvmd",
+			"/home/code/kvmd/testenv"
 		]
 
 	},
@@ -99,8 +100,7 @@
 			"ms-python.autopep8",
 			"waderyan.gitblame",
 			"github.copilot",
-			"kevinrose.vsc-python-indent",
-			"ms-python.mypy-type-checker"
+			"kevinrose.vsc-python-indent"
 		]
 	}
 }
