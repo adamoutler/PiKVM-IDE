@@ -86,7 +86,7 @@
 		"mypy.enabled": true,
 		"mypy.targets": [
 			"/home/code/kvmd/kvmd",
-			"/home/code/kvmd/testenv"
+			"/home/code/kvmd/testenv/tests"
 		]
 
 	},
