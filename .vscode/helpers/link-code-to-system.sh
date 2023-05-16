@@ -1,11 +1,11 @@
 sudo systemctl stop kvmd.service
-if [[ "$(python --version)" != "Python 3.10"* ]] ; then 
-    echo "Python version changed!  Please adjust unlink-code-to-system.sh"; 
+if [[ "$(python --version)" != "Python 3.11"* ]] ; then 
+    echo "Python version changed!  Please adjust link-code-to-system.sh"; 
     exit 1
 fi
 rw
 loaded=false
-kvmd_location=/usr/lib/python3.10/site-packages/kvmd
+kvmd_location=/usr/lib/python3.11/site-packages/kvmd
 usrsharekvmd_location=/usr/share/kvmd/
 test -L "${kvmd_location}" && loaded=true
 if ! ${loaded}; then
