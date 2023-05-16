@@ -114,6 +114,8 @@ Reconnection should just work.  However, if some changes occurred to your sshd c
 
 ## Debugging
 
+> ❗ Warning: Do not perform a python update while the code is linked to the system.  Press F1->Tasks->Unlink before updating python or it will remove your source folder as a part of the pacakge updates.
+
 ![kvmd-debugger](.vscode/images/debugger.jpg)
 
 ### KVMD
