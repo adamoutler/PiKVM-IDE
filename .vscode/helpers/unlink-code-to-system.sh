@@ -10,10 +10,10 @@ unlink ${kvmd_location}
 for file in `ls -1 /usr/share/kvmd`; do 
     sudo unlink /usr/share/kvmd/$file 
 done
-for file in `ls -1 /usr/share/kvmd/extras`; do 
-    sudo unlink /usr/share/kvmd/extras/$file 2>/dev/null;
+for name in 'ipmi' 'janus' 'janus-static' 'vnc'; do
+    sudo unlink /usr/share/kvmd/extras/$name 2>/dev/null;
 done
 sudo unlink /etc/kvmd/override.d/999-debug-ipmi
-sudo pacman -Syu --noconfirm kvmd
+sudo pacman -Syu --noconfirm kvmd kvmd-webterm
 sudo systemctl restart kvmd.service
 echo "source unlinked, replaced by official kvmd"
