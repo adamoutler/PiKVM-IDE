@@ -100,7 +100,8 @@
 			"ms-python.autopep8",
 			"waderyan.gitblame",
 			"github.copilot",
-			"kevinrose.vsc-python-indent"
+			"kevinrose.vsc-python-indent",
+			"ms-python.mypy-type-checker"
 		]
 	}
 }
