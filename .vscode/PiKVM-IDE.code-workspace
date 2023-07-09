@@ -81,12 +81,13 @@
 		"testing.automaticallyOpenPeekViewDuringAutoRun": true,
 		"mypy.configFile": "/home/code/kvmd/testenv/linters/mypy.ini",
 		"cSpell.enabled": false,
-		"mypy.debugLogging": true,
-		"mypy.runUsingActiveInterpreter": true,
-		"mypy.enabled": true,
-		"mypy.targets": [
+		"mypy-type-checker.path": [
 			"/home/code/kvmd/kvmd",
 			"/home/code/kvmd/testenv/tests"
+		],
+		"mypy-type-checker.args": [
+			"--follow-imports=skip",
+			"/home/code/kvmd/testenv/linters/mypy.ini"
 		]
 
 	},
