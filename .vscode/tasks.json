@@ -6,6 +6,11 @@
         {
             "label": "remount kvmd msd partition",
             "type": "shell",
+            "problemMatcher": [],
+            "icon": {
+                "id": "terminal-linux",
+                "color": "terminal.ansiGreen"
+            },
             "command": "sudo rw; sudo mount -o remount,rw /var/lib/kvmd/msd",
             "runOptions": {
                 "runOn": "folderOpen",
@@ -157,6 +162,7 @@
         },
         {
             "label": "Start kvmd-vnc in Debug Mode",
+            "hide": true,
             "type": "shell",
             "command": "sudo .vscode/helpers/vnc/debug.sh",
             "problemMatcher": [],
@@ -193,6 +199,7 @@
         },
         {
             "label": "Start kvmd-impi in Debug Mode",
+            "hide": true,
             "type": "shell",
             "command": "sudo .vscode/helpers/ipmi/debug.sh",
             "problemMatcher": [],
