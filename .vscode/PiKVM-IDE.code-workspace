@@ -90,7 +90,7 @@
 			"/home/code/kvmd/testenv/linters/mypy.ini"
 		],
 		"python.analysis.extraPaths": [
-			"/usr/lib/python3.10/site-packages/"
+			"/usr/lib/python3.12/site-packages/"
 		]
 
 	},
